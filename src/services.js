@@ -9,7 +9,7 @@ export function fetchWithTimeout(delay) {
 export function fetchMovies() {
   //use fetch api to get movies data from movies.json
   return fetch("./data/movies.json")
-    .then((response) => response.json)
+    .then((response) => response.json())
     .then((movies) => movies)
     .catch((error) => console.log(error));
 }
@@ -18,7 +18,7 @@ export function fetchMovies() {
 export function fetchBooks() {
   //use fetch api to get movies data from movies.json
   return fetch("./data/books.json")
-    .then((response) => response.json)
+    .then((response) => response.json())
     .then((books) => books)
     .catch((error) => console.log(error));
 }
