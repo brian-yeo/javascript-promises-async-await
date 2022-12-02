@@ -71,7 +71,7 @@ async function getBooksAndMoviesAsync() {
 async function getBooksOrMoviesAsync() {
   //await Promise.all and destructure the array results
   //whats being returned? EITHER books OR movies
-  const values = await Promise.race([asyncFetchBooks()], [asyncFetchMovies()]);
+  const values = await Promise.race([asyncFetchBookss()], [asyncFetchMovies()]);
   return values;
 }
 
