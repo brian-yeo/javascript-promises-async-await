@@ -64,18 +64,15 @@ async function getBooksAndMoviesAsync() {
     return { books, movies };
   } catch (error) {
     console.log("Error fetching books and movies", error);
+    console.error("Error in getBooksAndMoviesAsync execution", error);
   }
 }
 
 async function getBooksOrMoviesAsync() {
-  try {
-    //await Promise.all and destructure the array results
-    //whats being returned? EITHER books OR movies
-    const values = await Promise.race([asyncFetchBooks()], [asyncFetchMovies()]);
-    return values;
-  } catch (error) {
-    console.error("Error waiting for the promise race", error);
-  }
+  //await Promise.all and destructure the array results
+  //whats being returned? EITHER books OR movies
+  const values = await Promise.race([asyncFetchBooks()], [asyncFetchMovies()]);
+  return values;
 }
 
 getBooksAndMoviesAsync().then((results) => {
