@@ -35,7 +35,9 @@ function getBooksAndMovies() {
 const getBooksAndMoviesPromise = getBooksAndMovies();
 
 //log results of getBooksAndMovies()
-getBooksAndMoviesPromise.then((results) => console.log("getBooksAndMoviesPromise", results));
+getBooksAndMoviesPromise.then((results) => {
+  console.log("getBooksAndMoviesPromise", results);
+});
 
 //fetch books OR movies with Promise.race()
 function getBooksOrMovies() {
@@ -47,4 +49,6 @@ function getBooksOrMovies() {
 const getBooksOrMoviesPromise = getBooksOrMovies();
 
 //log results of getBooksOrMovies()
-getBooksOrMoviesPromise.then((results) => console.log("getBooksOrMoviesPromise", results));
+getBooksOrMoviesPromise.then((results) => {
+  console.log("getBooksOrMoviesPromise", results);
+});
