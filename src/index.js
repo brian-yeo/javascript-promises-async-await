@@ -82,3 +82,9 @@ getBooksOrMoviesAsync().then(
   /**resolve CB needed */
   console.log("movies or books", { results })
 );
+getBooksAndMoviesAsync().then(
+  console.log("movies and books", {
+    movies: results.movies,
+    books: results.books,
+  })
+);
