@@ -87,3 +87,14 @@ getBooksOrMoviesAsync().then((results) => {
   /**resolve CB needed */
   console.log("movies or books", { results });
 });
+
+const timer1 = () => {
+  setTimeout(3000);
+  console.log("timer 1 has finished");
+};
+
+const timer2 = () => {
+  setTimeout(2000);
+  console.log("time 2 has finished");
+  clearTimeout(timer1);
+};
