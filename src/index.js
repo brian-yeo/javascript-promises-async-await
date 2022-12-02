@@ -78,14 +78,14 @@ async function getBooksOrMoviesAsync() {
   }
 }
 
-getBooksAndMoviesAsync().then((results) =>
+getBooksAndMoviesAsync().then((results) => {
   console.log("movies and books", {
     movies: results.movies,
     books: results.books,
-  })
-);
+  });
+});
 
-getBooksOrMoviesAsync().then((results) =>
+getBooksOrMoviesAsync().then((results) => {
   /**resolve CB needed */
-  console.log("movies or books", { results })
-);
+  console.log("movies or books", { results });
+});
