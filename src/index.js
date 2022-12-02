@@ -59,7 +59,7 @@ async function getBooksAndMoviesAsync() {
   try {
     //await Promise.all and destructure the array results
     //whats being returned? books & movies
-    const [books, movies] = await Promise.all([asyncFetchBooks], [asyncFetchMovies]);
+    const [books, movies] = await Promise.all([asyncFetchBooks()], [asyncFetchMovies()]);
     //return the destructured books & movies
     return { books, movies };
   } catch (error) {
@@ -71,7 +71,7 @@ async function getBooksOrMoviesAsync() {
   try {
     //await Promise.all and destructure the array results
     //whats being returned? EITHER books OR movies
-    const values = await Promise.race([asyncFetchBooks], [asyncFetchMovies]);
+    const values = await Promise.race([asyncFetchBooks()], [asyncFetchMovies()]);
     return values;
   } catch (error) {
     console.error("Error waiting for promise race", error);
