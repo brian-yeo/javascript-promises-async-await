@@ -64,7 +64,6 @@ async function getBooksAndMoviesAsync() {
     return { books, movies };
   } catch (error) {
     console.log("Error fetching books and movies", error);
-    console.error("Error in getBooksAndMoviesAsync execution", error);
   }
 }
 
@@ -75,12 +74,14 @@ async function getBooksOrMoviesAsync() {
   return values;
 }
 
-getBooksAndMoviesAsync().then((results) => {
-  console.log("movies and books", {
-    movies: results.movies,
-    books: results.books,
-  });
-});
+getBooksAndMoviesAsync()
+  .then((results) => {
+    console.log("movies and books", {
+      movies: results.movies,
+      books: results.books,
+    });
+  })
+  .catch((error) => console.error("Error in getBooksAndMoviesAsync execution", error));
 
 getBooksOrMoviesAsync().then((results) => {
   /**resolve CB needed */
