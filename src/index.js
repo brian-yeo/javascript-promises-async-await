@@ -66,3 +66,19 @@ async function getBooksAndMoviesAsync() {
     console.log("Error fetching books and movies", error);
   }
 }
+
+async function getBooksOrMoviesAsync() {
+  try {
+    //await Promise.all and destructure the array results
+    //whats being returned? EITHER books OR movies
+    const values = await Promise.race([asyncFetchBooks], [asyncFetchMovies]);
+    return values;
+  } catch (error) {
+    console.error("Error waiting for promise race", error);
+  }
+}
+
+getBooksOrMoviesAsync().then(
+  /**resolve CB needed */
+  console.log("movies or books", { results })
+);
