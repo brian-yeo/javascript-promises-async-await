@@ -29,7 +29,9 @@ function getBooksAndMovies() {
       books,
       movies,
     }))
-    .catch((error) => console.log("Error fetching books and movies", error));
+    .catch((error) => {
+      console.log("Error fetching books and movies", error);
+    });
 }
 
 const getBooksAndMoviesPromise = getBooksAndMovies();
@@ -43,7 +45,9 @@ getBooksAndMoviesPromise.then((results) => {
 function getBooksOrMovies() {
   return Promise.race([fetchBooks(), fetchMovies()])
     .then((results) => results)
-    .catch((error) => console.log("Error waiting for the promise race", error));
+    .catch((error) => {
+      console.log("Error waiting for the promise race", error);
+    });
 }
 
 const getBooksOrMoviesPromise = getBooksOrMovies();
