@@ -22,3 +22,14 @@ export function fetchBooks() {
     .then((books) => books)
     .catch((error) => console.log(error));
 }
+
+export async function asyncFetchMovies() {
+  // add try/catch block
+  try {
+    const response = await fetch("./data/movies.json");
+    const results = await response.json();
+    return results;
+  } catch (error) {
+    console.log(error);
+  }
+}
