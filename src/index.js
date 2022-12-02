@@ -1,6 +1,6 @@
 //index.js is the entry pt to the application
 //import fetchWithTimeOut() from ./services
-import { fetchWithTimeOut, fetchBooks, fetchMovies } from "./services";
+import { fetchWithTimeOut, fetchBooks, fetchMovies, asyncFetchBooks, asyncFetchMovies } from "./services";
 
 /*
 //import movie data
@@ -33,9 +33,7 @@ function getBooksAndMovies() {
       console.log("Error fetching books and movies", error);
     });
 }
-
 const getBooksAndMoviesPromise = getBooksAndMovies();
-
 //log results of getBooksAndMovies()
 getBooksAndMoviesPromise.then((results) => {
   console.log("getBooksAndMoviesPromise", results);
@@ -49,10 +47,22 @@ function getBooksOrMovies() {
       console.log("Error waiting for the promise race", error);
     });
 }
-
 const getBooksOrMoviesPromise = getBooksOrMovies();
-
 //log results of getBooksOrMovies()
 getBooksOrMoviesPromise.then((results) => {
   console.log("getBooksOrMoviesPromise", results);
 });
+
+//! For domain sync, instead of saving the Promise.all object in allDomains,
+//! save in [domains, contracts] or something similar
+async function getBooksAndMoviesAsync() {
+  try {
+    //await Promise.all and destructure the array results
+    //whats being returned? books & movies
+    const [books, movies] = await Promise.all([asyncFetchBooks], [asyncFetchMovies]);
+    //return the destructured books & movies
+    return { books, movies };
+  } catch (error) {
+    console.log("Error fetching books and movies", error);
+  }
+}
