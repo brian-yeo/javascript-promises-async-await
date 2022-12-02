@@ -1,6 +1,6 @@
 //index.js is the entry pt to the application
 //import fetchWithTimeOut() from ./services
-import fetchWithTimeout from "./services";
+import { fetchWithTimeOut } from "./services";
 
 //import movie data
 const movies = require("./data/movies.json");
