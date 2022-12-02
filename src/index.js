@@ -81,20 +81,20 @@ getBooksAndMoviesAsync()
       books: results.books,
     });
   })
-  .catch((error) => console.error("Error in getBooksAndMoviesAsync execution", error));
+  .catch((error) => {
+    console.error("Error in getBooksAndMoviesAsync execution", error);
+  });
 
 getBooksOrMoviesAsync().then((results) => {
   /**resolve CB needed */
   console.log("movies or books", { results });
 });
 
-const timer1 = () => {
-  setTimeout(3000);
+const timer1 = setTimeout(() => {
   console.log("timer 1 has finished");
-};
+}, 3000);
 
-const timer2 = () => {
-  setTimeout(2000);
+const timer2 = setTimeout(() => {
   console.log("time 2 has finished");
   clearTimeout(timer1);
-};
+}, 2000);
