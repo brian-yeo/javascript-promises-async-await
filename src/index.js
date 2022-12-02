@@ -4,7 +4,7 @@
 const movies = require("./data/movies.json");
 
 //import fetchWithTimeOut() from ./services
-import { fetchWithTimeout } from "./services";
+import fetchWithTimeout from "./services";
 
 //declare fetchMovies()
 export function fetchMovies() {
